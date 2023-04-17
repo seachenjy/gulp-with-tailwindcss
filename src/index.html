@@ -4,104 +4,238 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Gulp with TailwindCSS v3</title>
+    <title>HEYCO硬件钱包</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
   </head>
-  <body class="bg-gray-50">
-    <div
-      class="bg-gradient-to-r from-red-400 to-pink-400 px-20 pb-44 pt-20 text-center"
-    >
-      <h1 class="hero-heading">
-        <a href="./" class="text-inherit no-underline"
-          >Gulp with TailwindCSS v3 Kit</a
-        >
-      </h1>
-      <p class="mb-10 w-full text-center text-xl leading-5 text-white">
-        Updated with Tailwind v3.3, PostCSS v8.0+
-      </p>
+  <body>
 
-      <div class="space-x-3">
-        <a
-          class="rounded-full border border-white/40 bg-white/40 px-5 py-2 text-sm font-medium text-white hover:bg-white/50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:bg-white/70 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
-          href="https://gulp-with-tailwindcss.com/"
-          target="_blank"
-          >Documentation</a
-        >
-
-        <a
-          class="rounded-full border border-white/40 bg-white/40 px-5 py-2 text-sm font-medium text-white hover:bg-white/50 focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 active:bg-white/70 dark:border-slate-700 dark:bg-slate-900 dark:hover:bg-slate-800"
-          href="https://github.com/lazymozek/gulp-with-tailwindcss"
-          target="_blank"
-          >Github</a
-        >
+    <nav class="main-menu">
+      <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div class="relative flex h-16 items-center justify-between">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <!-- Mobile menu button-->
+            <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+              <span class="sr-only">菜单</span>
+              <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="flex flex-shrink-0 items-center">
+              <img class="block h-7 w-auto lg:hidden" src="./img/heyco.png" alt="HEYCO硬件钱包">
+              <img class="hidden h-7 w-auto lg:block" src="./img/heyco.png" alt="HEYCO硬件钱包">
+            </div>
+            <div class="hidden sm:ml-6 sm:block">
+              <div class="flex">
+                <a href="#" class="menu-item">首页</a>
+                <a href="#" class="menu-item">APP下载</a>
+                <a href="#" class="menu-item">使用教程</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      class="mx-auto -mt-32 mb-24 max-w-3xl rounded-lg bg-white p-10 shadow-lg"
-    >
-      <div
-        class="prose-headings:font-display prose prose-slate max-w-full py-0.5 dark:prose-invert prose-headings:scroll-mt-28 prose-headings:font-normal prose-a:font-medium prose-a:text-rose-400 prose-a:no-underline prose-a:underline-offset-2 hover:prose-a:underline prose-pre:rounded-xl prose-pre:bg-slate-900 prose-pre:shadow-lg prose-lead:text-slate-500 dark:text-slate-400 dark:[--tw-prose-background:theme(colors.slate.900)] dark:prose-pre:bg-slate-800/60 dark:prose-pre:shadow-none dark:prose-pre:ring-1 dark:prose-pre:ring-slate-300/10 dark:prose-hr:border-slate-800 dark:prose-lead:text-slate-400 lg:prose-headings:scroll-mt-[8.5rem] [&_.inline-tick]:rounded-md [&_.inline-tick]:bg-slate-300/50 [&_.inline-tick]:px-1.5 [&_.inline-tick]:font-mono [&_.inline-tick]:text-sm [&_.inline-tick]:font-light [&_.inline-tick]:before:hidden [&_.inline-tick]:after:hidden dark:[&_.inline-tick]:bg-slate-600/50"
-      >
-        <img
-          class="rounded shadow transition-shadow duration-500 hover:shadow-lg"
-          src="img/cover.jpg"
-          alt="Gulp with TailwindCSS"
-        />
+    
+      <div class="hidden absolute bg-white shadow w-screen" id="mobile-menu">
+        <div class="space-y-1 px-2 pb-3 pt-2">
+          <a href="#" class="menu-item" aria-current="page">首页</a>
+          <a href="#" class="menu-item">APP下载</a>
+          <a href="#" class="menu-item">使用教程</a>
+        </div>
+      </div>
+    </nav>
 
-        <h3>Features</h3>
-        <ul>
-          <li>
-            Easy configuration using
-            <span class="inline-tick">config.js</span>
-          </li>
-          <li>Live reload on file/assets changes using browser-sync</li>
-          <li>SCSS support with auto purge css</li>
-          <li>Minification of styles and scripts on production build</li>
-          <li>
-            Minification of images on production build using
-            <span class="inline-tick">imagemin</span>
-          </li>
-          <li>
-            Includes following tailwindcss plugins (can be disabled/enabled with
-            <span class="inline-tick">config.js</span>)
-          </li>
-          <ul>
-            <li>
-              <a
-                target="_blank"
-                href="https://github.com/tailwindlabs/tailwindcss-forms"
-                >@tailwindcss/forms</a
-              >
-            </li>
-            <li>
-              <a
-                target="_blank"
-                href="https://tailwindcss.com/docs/typography-plugin"
-                >@tailwindcss/typography</a
-              >
-            </li>
-            <li>
-              <a
-                target="_blank"
-                href="https://github.com/tailwindlabs/tailwindcss-container-queries"
-                >@tailwindcss/container-queries</a
-              >
-            </li>
-            <li>
-              <span class="line-through">
-                <a
-                  target="_blank"
-                  href="https://github.com/tailwindlabs/tailwindcss-line-clamp"
-                  >@tailwindcss/line-clamp</a
-                >
-              </span>
-              - Added by default in Tailwind v3.3 release
-            </li>
-          </ul>
-        </ul>
+    <div>
+      <img src="./img/banner.png" srcset="./img/banner@2x.png 2x" />
+    </div>
+
+    <div class="container mx-auto product-one">
+      <div class="product-image flex1"><img src="./img/product-1.png" srcset="./img/product-1@2x.png 2x" /></div>
+      <div class="product-content flex1">
+        <h2 class="title-bg-txt "><span class="font-bold text-3xl">HEYCO硬件钱包</span></h2>
+        <div style="height:4px;" class="line w-10 mb-6 mt-6"></div>
+        <p class=" text-gray-500">采用CC EAL6+芯片币种增加交互体验全面升级</p>
+        <h3 class="pt-2 pb-4 font-bold text-2xl">￥1499</h3>
+        <a href="#" class="btn">查看详情</a>
       </div>
     </div>
 
-    <script src="./js/scripts.js"></script>
+    <div>
+      <img src="./img/product-2.png" srcset="./img/product-2@2x.png 2x" />
+    </div>
+
+    <div class=" container mx-auto mt-8 mb-8 flex justify-around">
+      <div class="flex-1 text-center">
+        <p><img class="mx-auto" src="./img/3886.png" srcset="./img/3886@2x.png 2x" /></p>
+        <h3 class="mt-2 text-base pb-1 pt-1 font-bold">便捷</h3>
+        <p class="text-xs leading-6 text-gray-600">界面简洁易懂<br/>给您独特体验</p>
+      </div>
+      <div class="flex-1 text-center">
+        <p><img class="mx-auto" src="./img/3887.png" srcset="./img/3887@2x.png 2x" /></p>
+        <h3 class="mt-2 text-base pb-1 pt-1 font-bold">高效</h3>
+        <p class="text-xs leading-6 text-gray-600">支持多币种应用<br/>快速操作响应</p>
+      </div>
+      <div class="flex-1 text-center">
+        <p><img class="mx-auto" src="./img/3888.png" srcset="./img/3888@2x.png 2x" /></p>
+        <h3 class="mt-2 text-base pb-1 pt-1 font-bold">多平台</h3>
+        <p class="text-xs leading-6 text-gray-600">支持Windows<br/>Mac 安卓</p>
+      </div>
+    </div>
+
+    <div class="container mx-auto flex justify-around group-3 text-white">
+      <div class="flex-1">
+        <img src="./img/product-3-1.png" srcset="./img/product-3-1@2x.png" />
+      </div>
+      <div class="flex-1 pl-20 pt-20">
+        <h2 class=" font-bold text-3xl">金融级安全芯片</h2>
+        <div style="height:4px;" class="line w-10 mb-6 mt-6"></div>
+        <p class="leading-10 text-gray-300">安全芯片实时加密保护<br/>提供固件认证，杜绝第三方纂改<br/>核心数据签名及认证均在安全芯片中完成</p>
+      </div>
+      <div class="flex-1  relative">
+        <img class="absolute bottom-0 right-0" src="./img/product-3-2.png" srcset="./img/product-3-2@2x.png" />
+      </div>
+    </div>
+
+    <div class="richs-list">
+      <div class="container text-center mx-auto pb-16 pt-10">
+        <div class="flex justify-center items-center pb-4">
+          <img class="mr-1 scale-50" src="./img/3870.png" srcset="./img/3870@2x.png" />
+          <h2 class="font-bold text-sm">拥有<span class=" text-green-600 text-2xl">硬件钱包</span>-从此告别数字资产被盗</h2>
+          <img class="ml-1 scale-50" src="./img/3871.png" srcset="./img/3871@2x.png" />
+        </div>
+        <h3 class=" text-gray-600">区块链被黑事件</h3>
+        <p class="text-green-600"><b class="  italic">704</b><span class=" text-xs">起</span></p>
+      </div>
+
+      <div class="container mx-auto flex pb-20 justify-around items-center">
+        <div class="flex-1">
+          <div class="flex justify-center items-center">
+            <img class="rich-icon" src="./img/icon1.png" />
+            <div class="rich-item w-40">
+              <h4>公链</h4>
+              <p>39</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-center items-center">
+            <img class="rich-icon" src="./img/icon2.png" />
+            <div class="rich-item w-40">
+              <h4>EOS DApp</h4>
+              <p>119</p>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <div class="flex justify-center items-center">
+            <img class="rich-icon" src="./img/icon3.png" />
+            <div class="rich-item w-40">
+              <h4>ETH DApp</h4>
+              <p>151</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mx-auto flex pb-20 justify-around items-center">
+          <div class="flex-1">
+            <div class="flex justify-center items-center">
+              <img class="rich-icon" src="./img/icon4.png" />
+              <div class="rich-item w-40">
+                <h4>交易所</h4>
+                <p>119</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-center items-center">
+              <img class="rich-icon" src="./img/icon1.png" />
+              <div class="rich-item w-40">
+                <h4>波场 DApp</h4>
+                <p>23</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1">
+            <div class="flex justify-center items-center">
+              <img class="rich-icon" src="./img/icon1.png" />
+              <div class="rich-item w-40">
+                <h4>ETH Token</h4>
+                <p>6</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center container mx-auto pb-8">
+        <h3 class=" text-gray-500">区块链被盗金额统计</h3>
+        <h4 class=" text-2xl text-green-500 font-bold italic pb-1 pt-1">$ 26,276,505,304.81美元</h4>
+        <p class=" text-gray-500 text-xs">数据来源：https://hacked.slowmist.io</p>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="container mx-auto text-center pt-14 pb-24">
+      <div class="flex justify-center items-center pb-4">
+        <img class=" scale-50" src="./img/3870.png" srcset="./img/3870@2x.png" />
+        <h2 class=" text-2xl">钱包APP</h2>
+        <img class=" scale-50" src="./img/3871.png" srcset="./img/3871@2x.png" />
+      </div>
+
+      <p class=" text-gray-600 text-sm">硬件钱包的“小助手”，同步广播钱包数据，随时可查，方便快捷</p>
+      <p class="pb-10 pt-10"><a href="#" class="btn">立即下载</a></p>
+      <p><img class="mx-auto" src="./img/3849.png" srcset="./img/3849@2x.png 2x" /></p>
+    </div>
+
+    <div class="group-tokens">
+      <div class="container mx-auto text-center">
+        <div class="flex justify-center items-center pb-4">
+          <img class=" scale-50" src="./img/3870.png" srcset="./img/3870@2x.png" />
+          <h2 class=" text-2xl">支持多种币种</h2>
+          <img class=" scale-50" src="./img/3871.png" srcset="./img/3871@2x.png" />
+        </div>
+        <p class="text-sm">管理全球优质币种，支持所有ERC-20 Token</p>
+      </div>
+    </div>
+    <div class="container text-center -mt-24 mx-auto">
+      <img class="mx-auto" src="./img/logos.png" srcset="./img/logos@2x.png 2x" />
+    </div>
+
+    <footer class="bg-black text-white text-sm footer">
+      <div class="container mx-auto sm:flex pl-14 justify-around">
+      <dl class="mt-20 flex-1">
+        <dt class="font-bold">服务支持</dt>
+        <dd><a href="#">用户服务协议</a></dd>
+        <dd><a href="#">使用许可协议</a></dd>
+        <dd><a href="#">售后服务政策</a></dd>
+        <dd><a href="#">隐私政策</a></dd>
+      </dl>
+
+      <dl class="mt-20 flex-1">
+        <dt class="font-bold">关于我们</dt>
+        <dd><a href="#">钱包APP介绍</a></dd>
+        <dd><a href="#">联系我们</a></dd>
+      </dl>
+
+      <dl class="mt-20 flex-1">
+        <dt class="font-bold">联系方式</dt>
+        <dd>联系电话 19932049024</dd>
+        <dd>联系邮箱 hezuo@niu.com</dd>
+      </dl>
+
+      <img class="flex-1" src="./img/footer-icon.png" srcset="./img/footer-icon@2x.png 2x" />
+    </div>
+    <div class="border-t border-gray-700 text-center p-5 text-xs text-gray-400">Copyright © 2023 xxxxxxxxxxxxx实业发展有限公司 版权所有 蜀ICP备2022011650号-1 </div>
+    </footer>
+
+
+    <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>

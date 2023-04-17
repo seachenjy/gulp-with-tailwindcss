@@ -1,184 +1,99 @@
-//All styles can be added here.
-.hero-heading {
-  @apply mb-10 text-4xl font-medium text-white;
-}
-
-.instructions {
-  .sub-title {
-    @apply mb-5 border-b-2 border-gray-400 pb-2 text-xl font-medium text-gray-900;
-
-    & + p {
-      @apply mb-3;
-    }
-  }
-  .code {
-    @apply block w-full rounded border bg-gray-100 px-4 py-5 font-mono text-sm leading-normal text-gray-700 shadow;
-
-    &.pre {
-      @apply whitespace-pre-wrap;
-    }
-
-    em {
-      @apply opacity-75;
-    }
+.btn {
+  padding:.5em 1em;
+  @apply bg-green-600 text-white;
+  &:hover {
+    @apply bg-green-800;
   }
 }
 
-.social {
-  @apply block pt-6 text-gray-700;
+.title-bg-txt {
+  position: relative;
+  span {
+    z-index: 1;
+    position: relative;
+  }
+  &::after {
+    content: "WALLET";
+    font-weight: 800;
+    @apply text-green-100;
+    font-size: 40px;
+    position: absolute;
+    z-index: 0;
+    top:-.8em;
+    left:0;
+  }
+}
 
+.line {
+  height: 20px;
+  background: linear-gradient(90deg, #AD5DFA 0%, #5E6FEB 52%, #37CCA1 98%);
+}
+
+.main-menu {
+  @apply bg-white shadow;
+  .menu-item{
+    @apply text-gray-600 hover:text-green-400 border-b-2 border-transparent hover:border-green-400 box-border mx-5 py-2 text-sm font-medium;
+  }
+}
+
+#mobile-menu {
+  .menu-item {
+    @apply text-gray-600 hover:text-green-400 block px-3 py-2 text-base font-medium;
+  }
+}
+
+.product-one {
+  .product-image {
+    @apply p-6 sm:p-16;
+    background: linear-gradient(135deg, #E5FFF9 0%, #EEF0FF 100%);
+    img {
+      @apply w-2/3 mx-auto;
+    }
+  }
+  .product-content {
+    @apply p-4 sm:p-12;
+  }
+  @apply container mx-auto sm:w-full sm:pt-16 sm:pb-16 md:flex justify-center;
+
+}
+
+.group-3 {
+  background:#1A2752;
+  @apply text-white;
+}
+
+.richs-list {
+  .rich-icon {
+    @apply mr-3;
+  }
+  .rich-item {
+    h4 {
+      @apply text-gray-600 pb-4;
+    }
+    p {
+      @apply text-green-500 text-3xl;
+    }
+  }
+}
+
+.group-tokens {
+  background: linear-gradient(135deg, #1A2B59 0%, #11132C 100%);
+  @apply text-center text-white;
+  .container {
+    @apply pt-16 pb-24;
+  }
+}
+
+.footer {
+  dt {
+    @apply pb-3;
+  }
+  dd {
+    @apply text-xs text-gray-400 pt-3 pb-3;
+  }
   a {
-    @apply p-4 font-medium text-blue-500;
-
     &:hover {
-      @apply text-blue-700;
+      @apply text-green-500;
     }
   }
-}
-
-// highlights
-
-pre[class*="language-"] {
-  color: #f8fafc;
-  @apply max-w-2xl;
-}
-
-.token.class-name,
-.token.function,
-.token.selector,
-.token.selector .class,
-.token.selector.class,
-.token.module,
-.token.tag {
-  color: #f472b6;
-}
-
-.token.attr-name,
-.token.important,
-.token.keyword,
-.token.pseudo-class,
-.token.rule {
-  color: #cbd5e1;
-}
-
-.token.attr-value,
-.token.class,
-.token.property,
-.token.string {
-  color: #7dd3fc;
-}
-
-.token.attr-equals,
-.token.punctuation {
-  color: #64748b;
-}
-
-.token.combinator,
-.token.comment,
-.token.operator {
-  color: #94a3b8;
-}
-
-.language-css .token.function,
-.token.unit {
-  color: #99f6e4;
-}
-
-code[class*="language-"],
-pre[class*="language-"] {
-  word-wrap: normal;
-  -webkit-hyphens: none;
-  hyphens: none;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  text-align: left;
-  white-space: pre;
-  word-break: normal;
-  word-spacing: normal;
-}
-
-code[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-pre[class*="language-"]::-moz-selection {
-  background: rgba(29, 59, 83, 0.99);
-  text-shadow: none;
-}
-
-code[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-pre[class*="language-"]::selection {
-  background: rgba(29, 59, 83, 0.99);
-  text-shadow: none;
-}
-
-.token.cdata,
-.token.comment,
-.token.prolog {
-  color: #94a3b8;
-  font-style: italic;
-}
-
-.token.punctuation {
-  color: #c792ea;
-}
-
-.token.deleted {
-  color: rgba(239, 83, 80, 0.56);
-  font-style: italic;
-}
-
-.token.keyword,
-.token.operator,
-.token.tag {
-  color: #f472b6;
-}
-
-.token.boolean {
-  color: #ff5874;
-}
-
-.token.number {
-  color: #f78c6c;
-}
-
-.token.builtin,
-.token.char,
-.token.constant,
-.token.function {
-  color: #f472b6;
-}
-
-.token.doctype,
-.token.selector {
-  color: #c792ea;
-  font-style: italic;
-}
-
-.token.attr-name,
-.token.inserted {
-  color: #addb67;
-  font-style: italic;
-}
-
-.language-css .token.string,
-.style .token.string,
-.token.entity,
-.token.string,
-.token.url {
-  color: #7dd3fc;
-}
-
-.token.atrule,
-.token.attr-value,
-.token.class-name {
-  color: #ffcb8b;
-}
-
-.token.important,
-.token.regex,
-.token.variable {
-  color: #d6deeb;
 }

@@ -21,9 +21,6 @@ const sass = require("gulp-sass")(require("sass")); //For Compiling SASS files
 const postcss = require("gulp-postcss"); //For Compiling tailwind utilities with tailwind config
 const concat = require("gulp-concat"); //For Concatinating js,css files
 const uglify = require("gulp-terser"); //To Minify JS files
-const imagemin = require("gulp-imagemin"); //To Optimize Images
-const mozjpeg = require("imagemin-mozjpeg"); // imagemin plugin
-const pngquant = require("imagemin-pngquant"); // imagemin plugin
 const purgecss = require("gulp-purgecss"); // Remove Unused CSS from Styles
 const logSymbols = require("log-symbols"); //For Symbolic Console logs :) :P
 const includePartials = require("gulp-file-include"); //For supporting partials if required
@@ -65,11 +62,9 @@ function devStyles() {
 
 function devScripts() {
   return src([
-    `${options.paths.src.js}/libs/**/*.js`,
-    `${options.paths.src.js}/**/*.js`,
-    `!${options.paths.src.js}/**/external/*`,
+    `${options.paths.src.js}/main.js`,
   ])
-    .pipe(concat({ path: "scripts.js" }))
+    .pipe(concat({ path: "main.js" }))
     .pipe(dest(options.paths.dist.js));
 }
 
@@ -79,23 +74,6 @@ function devImages() {
   );
 }
 
-function devImages() {
-  return src(`${options.paths.src.img}/**/*`).pipe(
-    dest(options.paths.dist.img)
-  );
-}
-
-function devFonts() {
-  return src(`${options.paths.src.fonts}/**/*`).pipe(
-    dest(options.paths.dist.fonts)
-  );
-}
-
-function devThirdParty() {
-  return src(`${options.paths.src.thirdParty}/**/*`).pipe(
-    dest(options.paths.dist.thirdParty)
-  );
-}
 
 function watchFiles() {
   watch(
@@ -108,11 +86,6 @@ function watchFiles() {
   );
   watch(`${options.paths.src.js}/**/*.js`, series(devScripts, previewReload));
   watch(`${options.paths.src.img}/**/*`, series(devImages, previewReload));
-  watch(`${options.paths.src.fonts}/**/*`, series(devFonts, previewReload));
-  watch(
-    `${options.paths.src.thirdParty}/**/*`,
-    series(devThirdParty, previewReload)
-  );
   console.log("\n\t" + logSymbols.info, "Watching for Changes..\n");
 }
 
@@ -175,33 +148,10 @@ function prodScripts() {
 }
 
 function prodImages() {
-  const pngQuality = Array.isArray(options.config.imagemin.png)
-    ? options.config.imagemin.png
-    : [0.7, 0.7];
-  const jpgQuality = Number.isInteger(options.config.imagemin.jpeg)
-    ? options.config.imagemin.jpeg
-    : 70;
-  const plugins = [
-    pngquant({ quality: pngQuality }),
-    mozjpeg({ quality: jpgQuality }),
-  ];
-
   return src(options.paths.src.img + "/**/*")
-    .pipe(imagemin([...plugins]))
     .pipe(dest(options.paths.build.img));
 }
 
-function prodFonts() {
-  return src(`${options.paths.src.fonts}/**/*`).pipe(
-    dest(options.paths.build.fonts)
-  );
-}
-
-function prodThirdParty() {
-  return src(`${options.paths.src.thirdParty}/**/*`).pipe(
-    dest(options.paths.build.thirdParty)
-  );
-}
 
 function prodClean() {
   console.log(
@@ -223,7 +173,7 @@ function buildFinish(done) {
 
 exports.default = series(
   devClean, // Clean Dist Folder
-  parallel(devStyles, devScripts, devImages, devFonts, devThirdParty, devHTML), //Run All tasks in parallel
+  parallel(devStyles, devScripts, devImages, devHTML), //Run All tasks in parallel
   livePreview, // Live Preview Build
   watchFiles // Watch for Live Changes
 );
@@ -235,8 +185,6 @@ exports.prod = series(
     prodScripts,
     prodImages,
     prodHTML,
-    prodFonts,
-    prodThirdParty
   ), //Run All tasks in parallel
   buildFinish
 );

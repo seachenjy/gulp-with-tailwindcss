@@ -7,11 +7,7 @@ const config = {
       standard: [/^pre/, /^code/],
       greedy: [/token.*/],
     },
-  },
-  imagemin: {
-    png: [0.7, 0.7], // range between min (0) and max (1) as quality - 70% with current values for png images,
-    jpeg: 70, // % of compression for jpg, jpeg images
-  },
+  }
 };
 
 // tailwind plugins
